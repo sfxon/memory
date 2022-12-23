@@ -1,0 +1,83 @@
+<div id="wsseller-session-container">
+		<div class="container">
+				<div class="row">
+						<div class="col-xs-12">
+								{$ERRORMESSAGE}
+						</div>
+				</div>
+				
+				{literal}
+						<style>
+								#wsseller-session-container { position: relative; }
+								.login-container { 
+										border-left: 7px solid #F1F2F6; border-right: 7px solid #F1F2F6; 
+										border-top: 8px solid #F1F2F6; border-bottom: 8px solid #F1F2F6;
+										margin-top: 100px;
+								}
+								.login-container h1 { 
+										background-color: #CC0001; border: 1px solid #971718; color: #FFF; 
+										text-align: center; margin-top: 0; text-transform: uppercase;
+										font-size: 28px; padding: 6px 0px;
+								}
+								.login-container .form-group { width: 100%; }
+								.login-container .input-group { width: 80%; }
+								.login-container label { margin-right: 20px; margin-top: 20px; width: 13%; }
+								.login-container input { width: 100%; }
+								
+								.login-container-subcontainer { padding-left: 20px; padding-right: 20px; }
+								.fa { min-width: 16px; }
+								.login-container-subcontainer .row { padding-bottom: 10px; }
+								.login-container-subcontainer .action-row { text-align: center; }
+								.login-container-subcontainer .action-row .btn { margin-top: 20px; padding-left: 30px; padding-right: 30px; }
+								.login-container p { padding: 20px 20px 0; }
+								table { width: 100%; }
+								thead { background-color: #CCC; }
+								thead th { padding: 6px; }
+								tbody td { padding: 6px; }
+								
+						</style>
+				{/literal}
+				<div class="row">
+						<div class="col-xs-6 col-xs-offset-3">
+								<div class="login-container">
+										<h1>Webseller</h1>
+										
+										<p>Es sind Sitzungen aktiv, die Ihrem Account zugeordnet sind. Sie können die Sitzungen fortsetzen oder beenden.</p>
+										
+										<div class="login-container-subcontainer">
+												<table>
+														<thead>
+																<tr>
+																		<th>Sitzungen:</th>
+																</tr>
+														</thead>
+														<tbody>
+																		
+																{foreach from=$RUNNING_SESSIONS item=dataitem}
+																		<tr>
+																				<td>
+																						<b>Sitzung Nr. {$dataitem.webseller_sessions_id}</b> (Live-ID: {$dataitem.id})<br />
+																						mit <b>{$dataitem.session_data.customers_data.firstname} {$dataitem.session_data.customers_data.lastname}</b> {if $dataitem.session_data.customers_data.company != ''} von der Firma <b>{$dataitem.session_data.customers_data.company}</b>{/if}<br />
+																						gestartet am {$dataitem.session_started_on|date_format:"%d.%m.%Y um %H:%I Uhr"}
+																						<br /><br />
+																						<a href="{$SESSION_HANDLER_URL}?live_session_id={$dataitem.id}"><button>Fortsetzen</button></a>
+																						<a href="{$SESSIONS_LIVE_URL}?action=quit_session&amp;live_session_id={$dataitem.id}" id="confirm_quit_session"><button>Beenden</button></a>
+																						<hr />
+																				</td>
+																		</tr>
+																{/foreach}
+														</tbody>
+												</table>
+										</div>
+								</div>
+						</div>
+				</div>
+		</div>
+		
+		{literal}
+				<style>
+						img#title-logo { position: absolute; top:10px; right: 10px; }
+				</style>
+				<img id="title-logo" title="" alt="" src="data/templates/blitz2016/images/logo-index.png">
+		{/literal}
+</div>

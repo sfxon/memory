@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<rss version="2.0">
+
+		<channel>
+
+				<title>Welcome to the BLITZ News Channel</title>
+
+		    <description>This channel provides all important new for BLITZ - Business Logic - IT - Zoo.</description>
+
+		    <link>http://www.mindfav.com/blitz-news.rss</link>
+
+		    <category domain="www.mindfav.com/blitz/news/main/index.html">Blitz/Main</category>
+
+		    <language>en-us</language>
+
+    		<lastBuildDate>Mon, 15 Jan 2016 13:37:00 -0500</lastBuildDate>
+
+		    <managingEditor>blitz-news@mindfav.com</managingEditor>
+
+    		<pubDate>Mon, 15 Jan 2016 13:42:00 -0500</pubDate>
+
+		    <webMaster>blitz-webmaster@mindfav.com</webMaster>
+
+		    <generator>Blitz</generator>
+
+				
+
+				<item>
+
+						<title>Update 2</title>
+
+			      <description>We are working on an major update, that will be available around 1st of March 2016.</description>
+
+			      <link></link>
+
+			      <pubDate>Tue, 15 Jan 2016 13:38:00 -0500</pubDate>
+
+				</item>
+
+				
+
+				<item>
+
+						<title>Update 1</title>
+
+			      <description>Today we released an update that fixes some errors in the templates, that came from the cCMS Module.</description>
+
+			      <link></link>
+
+			      <pubDate>Tue, 15 Jan 2016 13:37:41 -0500</pubDate>
+
+				</item>
+
+				
+
+				<item>
+
+						<title>Start</title>
+
+			      <description>Welcome to the blitz news channel.</description>
+
+			      <link></link>
+
+			      <pubDate>Tue, 15 Jan 2016 13:37:41 -0500</pubDate>
+
+				</item>
+
+  </channel>
+
+</rss>

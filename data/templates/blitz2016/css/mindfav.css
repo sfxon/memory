@@ -1,0 +1,90 @@
+html, body { background-color: #000; text-align: center; color: #FFF; font-family: Arial; font-weight: bold; }
+.mv-admin-navbar { margin-bottom: 0; }
+#index-page { text-align: center; padding-top: 80px; margin: 0 auto; }
+#index-teaser-image { display: inline-block; position: relative; text-align: center; }
+#index-teaser-image-text { /*position: absolute; top: 40px;*/ }
+#index-teaser-image-text p { color: #FFF; font-size: 26px; margin-top: -188px; margin-bottom: 200px; }
+.mv-btn { background-color: transparent; color: #666; border: 3px solid #FFF; padding: 8px 32px; border-radius: 0; color: #FFF; width: auto; }
+.mv-btn:focus, .mv-btn:hover { background-color: #FFF; border-color: #FFF; color: #000; }
+.post-password-form { margin-top: 40px; }
+.post-password-form label { color: #FFF; }
+.post-password-form input { color: #000; }
+#enter-name-form input { color: #FFF; background-color: transparent; font-size: 26px; border-radius: 0; padding: 8px 8px; height: auto; border: 3px solid #666;  }
+#enter-name-form input.form-control:focus { box-shadow: none; outline: 0; border: 3px solid #FFF; }
+#enter-name-page { margin-top: 240px; }
+#enter-name-page input, #enter-name-page button { width: 100%; }
+#enter-name-page button { margin-top: 40px; }
+#start-intro-page { font-size: 26px; color: #FFF; margin-top: 120px; }
+#start-intro-page form { width: auto; display: inline-block; }
+.col-md-1.card { width: 10.5%; }
+.row-alternate .col-md-offset-2:first-child { margin-left: 5%; }
+.row-long-alternate .col-md-offset-2:first-child { margin-left: 10%; }
+.card { cursor: pointer; margin: 0px; padding: 0; }
+.row-long-alternate .col-md-offset-2:first-child { margin-left: 10%; }
+.card_border_container { border: 2px solid #FFF; }
+.card_text { position: relative; text-align: center; z-index: 500; border: 2px solid #FFF; }
+.card_text_info { font-weight: bold; height: 100%; margin: 0 auto; position: absolute; text-align: center; top: 0; width: 100%; z-index: 1000; }
+.the-text { display: table; height: 100%; width: 100%; }
+.the-text { display: none; }
+.the-text p { display: table-cell; text-align: center; vertical-align: middle; }
+#card-game-screen { padding: 0; }
+.image-card-highlite-container { padding: 4px; position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.image-card-highlite-inner-container { height: 100%; width: 100%; }
+
+/*
+.image-card-highlite-inner-container:hover { outline: 2px dotted #666; box-shadow: 0 0 0 2px #999; }
+.card_border_container:hover .card_text_info { outline: 2px dotted #666; box-shadow: 0 0 0 2px #999; }
+*/
+
+.activated .image-card-highlite-inner-container { outline: 2px dotted #FC0; box-shadow: 0 0 0 2px #FF3; }
+.activated .card_border_container .card_text_info { outline: 2px dotted #FC0; box-shadow: 0 0 0 2px #FF3; }
+.cleared .card_text { border: 0; }
+.cleared .image-card-highlite-inner-container { box-shadow: none; outline: 0; border: 0; }
+.cleared { cursor: default; }
+#try_again_button { text-align: center; }
+#card-game-end-screen-text { position: absolute; top: 150px; width: 100%; text-align: left; }
+
+#load-waiter { width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: #000; z-index: 1500; }
+#load-waiter p { margin-top: 20%; color: #FFF; }
+
+/*.cleared .card_border_container { border-color: transparent; }*/
+
+.mv-type-text:after {
+  visibility: visible;
+  content: '|';
+  display: inline-block;
+  position: relative;
+  height: 1em;
+  top: -1px;
+  margin-left: 0;
+	-webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.typed-cursor { display: none; }
+
+
+#index-teaser-image video { width: 50%; }
+/* following code hides the video controls, by putting a layer over the video player.. */
+#index-teaser-image { position: relative; text-align: center; }
+#index-teaser-image-hide-controls { width: 100%; height: 100%; background: transparent; position: absolute; top: 0; left: 0; }
+.mv-type-text { display: inline-block; text-align: left; }
+#try_again_button { margin-top: 100px; }
+
+.mv-second-chance-main-container .cleared .card_border_container { border-color: transparent; }

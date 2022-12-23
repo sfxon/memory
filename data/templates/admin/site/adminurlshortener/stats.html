@@ -1,0 +1,29 @@
+<div class="container-fluid">
+		<div class="mv-force-table-responsive">
+				<table class="table table-hover table-condensed table-bordered table-striped">
+						<thead>
+								<tr>
+										<th>{$smarty.const.TEXT_TABLE_HEADING_ID}</th>
+										<th>{$smarty.const.TEXT_TABLE_HEADING_CALL_TIME}</th>
+										<th>{$smarty.const.TEXT_TABLE_HEADING_IP_ADDRESS_USER}</th>
+								</tr>
+						</thead>
+						
+						<tbody>
+								{if $STATS|count == 0}
+										<tr><td colspan="8">{$smarty.const.TEXT_NO_DATA}</td></tr>
+								{else}
+										{foreach from=$STATS item=dataitem name=listforeach}
+												{if false !== $dataitem}
+														<tr>
+																<td>{$dataitem.urlshortener_id}</td>
+																<td>{$dataitem.call_time|htmlspecialchars}</td>
+																<td>{$dataitem.ip_address_user|htmlspecialchars}</td>
+														</tr>
+												{/if}
+										{/foreach}
+								{/if}
+						</tbody>
+				</table>
+		</div>
+</div>

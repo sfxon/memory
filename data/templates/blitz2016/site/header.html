@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {* <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --> *}
+    {if isset($META_DESCRIPTION)}<meta name="description" content="{$META_DESCRIPTION}">{/if}
+    {if isset($META_AUTHOR)}<meta name="author" content="{$META_AUTHOR}">{/if}
+    <link rel="icon" href="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/images/favicon.ico">
+    <title>{$META_TITLE}</title>
+    <link href="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/css/mindfav.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		
+		<script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/jquery.min.js"></script>
+		<script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/bootstrap.min.js"></script>
+		{* <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> *}
+		<script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/ie10-viewport-bug-workaround.js"></script>
+		<!-- <script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/mv.js"></script> -->
+		<script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/typed.js"></script>
+    
+		{* <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --> *}
+    <!--[if lt IE 9]>
+      <script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/html5shiv.min.js"></script>
+      <script src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/js/respond.min.js"></script>
+    <![endif]-->
+		<style>
+				{literal}
+				body { font-size: {/literal}{$FONT_SIZE_TEXT}{literal}; }
+				button, input[type=submit] { font-size: {/literal}{$FONT_SIZE_BUTTON}{literal}; }
+				{/literal}
+		</style>
+		{literal}
+		<script>
+				var mv_animated_dottes_timeout = '';
+		</script>
+		{/literal}

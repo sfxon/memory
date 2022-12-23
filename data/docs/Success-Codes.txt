@@ -1,0 +1,42 @@
+		 1  The cms item has been updated successful. 
+		 2	The navigation bar data has been saved.
+		 3	The content entry has been saved.
+		 4	The seourl entry has been updated.
+		 5	The seourl entry has been created.
+		 6  Userdata has been changed successful.
+		 7	Contact form has been updated.
+		 8	Contact form has been created.
+		 9	Text variable has been updated.
+		10	Text variable has been created.
+		11	Contact form detail entry has been created.
+		12	Contact form detail entry has been updated.
+		13	Site has been updated.
+		14	Site has been created.
+		15	User account has been updated.
+		16	User account has been created.
+		17	MQL Account has been updated.
+		18	MQL Account has been created.
+		19	Licence Preset has been updated.
+		20	Licence Preset has been created.
+		21	Account licence has been updated.
+		22	Account licence has been created.
+		23	User account has been created by user in frontend.
+		24	User account has been deleted by admin in backend (account_type set to 0(zero)).
+		25	Webseller session has been deleted by admin in backend (status set to 0(zero)).
+		26	Webseller session has been updated.
+		27	Webseller session has been created.
+		28	Product category has been deleted by admin in backend (status set to 0(zero)).
+		29	Product category has been updated.
+		30	Product category has been created.
+		31	Product has been created.
+		32	Product has been updated.
+		33	Webseller setup updated successful.
+		34	Webseller Machine updated successful.
+		35	Webseller Machine created successful.
+		36	Webseller Machines State updated successful.
+		37	Webseller Machines State created successful.
+		38	Webseller Machines States Object updated successful.
+		39	Webseller Machines States Object created successful.
+		40	Urlshortener was created successful.
+		41	Urlshortener has been updated.
+		42	Urlshortener has been created.

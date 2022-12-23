@@ -1,0 +1,2 @@
+    0	Session noch nicht gestartet.
+		1	Session beendet.

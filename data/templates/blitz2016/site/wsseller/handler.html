@@ -1,0 +1,67 @@
+<div class="row">
+		<div class="col-md-4 seller-guide-container">
+				<div id="seller-title" class="seller-heading">
+						Hallo {if $DATA.seller.gender == 1} Herr{else} Frau{/if} {$DATA.seller.lastname}
+				</div>		
+				<div id="seller-traffic-light">
+						<img src="{$TEMPLATE_URL}data/images/traffic-light/red.png">
+				</div>
+				<div id="seller-guide" class="seller-text">
+						<b>{if $DATA.customer.gender == 1}Herr{else}Frau{/if} {$DATA.customer.firstname} {$DATA.customer.lastname}</b>
+						hat Ihre Einladung erhalten. 
+						Sobald {if $DATA.customer.gender == 1}er{else}sie{/if} 2D Webseller aufgerufen hat und
+						{if $DATA.customer.gender == 1}sein{else}ihr{/if} Passwort eingegeben hat, erscheint hier eine Grüne Ampel!
+				</div>
+				
+				<div id="seller-scripting-heading" class="seller-heading">
+						Informationen
+				</div>
+				<div id="seller-scripting-static" class="seller-text">
+						Kunde: {if $DATA.customer.gender == 1}Herr{else}Frau{/if} {$DATA.customer.firstname} {$DATA.customer.lastname}<br />
+						Firma: {$DATA.customer.company}
+				</div>
+				<div id="seller-scripting" class="seller-text">
+						Session-Passwort: {$DATA.session_data.webseller_session_key}<br />
+						<br />
+						{if $DATA.customer.gender == 1}Herr{else}Frau{/if} {$DATA.customer.lastname} muss das Passwort selbständig eingeben,
+						damit {if $DATA.customer.gender == 1}er{else}sie{/if} der Sitzung beitreten kann.
+						Sie können ihr aber mit dem Passwort oben helfen. Das ist das Passwort, dass der Kunde zum Beitreten der
+						Session eingeben muss. Er hat es mit der E-Mail erhalten.
+				</div>
+				
+				<div id="seller-debug">
+						<div id="seller-debug-button-container">
+								<button id="seller-debug-show">Debug-Informationen</button>
+						</div>
+						<div id="seller-debug-information">
+								Loading..<br />
+						</div>
+				</div>
+				
+				<div id="seller-logout-customer">
+						<button id="seller-logout-customer-action">Kunde abmelden (Session zurücksetzen)</button>
+				</div>
+				
+				<div id="seller-logout">
+						<a href="{$TEMPLATE_URL}?s=cWssellerlogout"><button>Logout (Selbst ausloggen)</button></a>
+				</div>
+		</div>
+		<div class="col-md-8" id="customer-view-container-col">
+				<div id="customer-view-container" data-attr-state-json="">
+						Loading..
+				</div>
+		</div>
+		
+		<input type="hidden" value="{$TEMPLATE_URL}" id="template_url" />
+		<input type="hidden" value="{$SESSION_HANDLER_URL}" id="session_handler_url" />
+		<input type="hidden" value="{$DATA.live_session_data.id}" id="live_session_id" />
+</div>
+
+{literal}
+		<style>
+				#customer-view-container-col { height: 100%; padding-left: 0; }
+				#customer-view-container { height: 100%; text-align: center; }
+				#customer-view-container iframe { height: 100%; }
+		</style>
+{/literal}
+				

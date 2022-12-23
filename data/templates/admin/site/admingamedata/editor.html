@@ -1,0 +1,207 @@
+<div class="container-fluid">
+		<nav class="navbar navbar-default mv-navbar" role="navigation">
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">{$smarty.const.TEXT_TOGGLE_NAVIGATION}</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<div class="navbar-left navbar-text">
+								{$NAVBAR_TITLE}
+						</div>
+				</div>
+		</nav>
+		
+		<div class="mvbox">
+				<div class="mvbox-body">
+						<form role="form" action="{$DATA.url}" method="POST" class="form" enctype="multipart/form-data">
+								<div class="row">
+										<div class="col-xs-12">					
+												
+												{if $DATA.data.id != 0}								
+														<div class="row">
+																<div class="form-group col-sm-12">
+																		<label for="id">{$smarty.const.TEXT_LABEL_CONTENT_ID}</label>
+																		<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_CONTENT_ID}" name="id" value="{$DATA.data.id}" readonly="readonly" />
+																</div>
+														</div>
+												{/if}
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="status">{$smarty.const.TEXT_LABEL_STATUS}</label>
+																<select name="status" class="form-control">
+																		<option value="1"{if 1 == $DATA.data.status} selected="selected"{/if}>Aktiviert</option>
+																		<option value="0"{if 0 == $DATA.data.status} selected="selected"{/if}>Deaktiviert</option>
+																</select>
+														</div>
+												</div>
+										</div>
+								</div>
+								
+								
+								
+								<div class="row">
+										<div class="col-md-12">
+												<b>Karte 1:</b><br />
+												
+												{foreach from=$DATALANGUAGES item=language}
+														<div class="row">
+																<div class="form-group col-sm-12">
+																		<label for="title1_{$language.id}">{$smarty.const.TEXT_LABEL_TITLE} {$language.title}</label>
+																		<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_TITLE} {$language.title}" name="title1_{$language.id}" value="{foreach from=$DATA.data.titles item=mvtitle}{if $mvtitle.language_id == $language.id}{$mvtitle.title1}{/if}{/foreach}" />
+																</div>
+														</div>
+												{/foreach}
+												
+												<div class="row">
+														<div class="col-md-6">												
+																<div class="row">
+																		<div class="form-group col-sm-12">
+																				<label for="image_card1">Deckblatt-Bildkarte:</label>
+																				<input type="file" class="form-control" name="image_card1" />
+																		</div>
+																</div>																
+																{if isset($DATA.data.images)}
+																		{foreach from=$DATA.data.images item=image}
+																				{if $image.file_exists}
+																						{if $image.card_number == 1}
+																								<div class="row">
+																										<div class="form-group col-sm-12">
+																												<label>Aktuelles Bild:</label><br />
+																												<img src="//{$SITE_URLS[0].url}/{$image.filename_with_path}" />
+																										</div>
+																								</div>
+																						{/if}
+																				{/if}
+																		{/foreach}
+																{/if}																
+																<div class="row">
+																		<div class="form-group col-sm-12">
+																				<label for="wrong_animation_card1">Falsche Animation:</label>
+																				<input type="file" class="form-control" name="wrong_animation_card1" />
+																		</div>
+																</div>																
+																{if isset($DATA.data.wrong_animations)}
+																		{foreach from=$DATA.data.wrong_animations item=image}
+																				{if $image.file_exists}
+																						{if $image.card_number == 1}
+																								<div class="row">
+																										<div class="form-group col-sm-12">
+																												<label>Aktuelle Falsche Animation:</label><br />
+																												<img src="//{$SITE_URLS[0].url}/{$image.filename_with_path}" />
+																										</div>
+																								</div>
+																						{/if}
+																				{/if}
+																		{/foreach}
+																{/if}																
+																<div class="row">
+																		<div class="form-group col-sm-12">
+																				<label for="animation_card1">Richtige Animation:</label>
+																				<input type="file" class="form-control" name="animation_card1" />
+																		</div>
+																</div>																
+																{if isset($DATA.data.animations)}
+																		{foreach from=$DATA.data.animations item=image}
+																				{if $image.file_exists}
+																						{if $image.card_number == 1}
+																								<div class="row">
+																										<div class="form-group col-sm-12">
+																												<label>Aktuelle Animation:</label><br />
+																												<img src="//{$SITE_URLS[0].url}/{$image.filename_with_path}" />
+																										</div>
+																								</div>
+																						{/if}
+																				{/if}
+																		{/foreach}
+																{/if}
+														</div>
+														
+														<div class="col-md-6">
+																<div class="row">
+																		<div class="form-group col-sm-12">
+																				<label for="image_card2">Deckblatt-Textkarte:</label>
+																				<input type="file" class="form-control" name="image_card2" />
+																		</div>
+																</div>																
+																{if isset($DATA.data.images)}
+																		{foreach from=$DATA.data.images item=image}
+																				{if $image.file_exists}
+																						{if $image.card_number == 2}
+																								<div class="row">
+																										<div class="form-group col-sm-12">
+																												<label>Aktuelles Bild:</label><br />
+																												<img src="//{$SITE_URLS[0].url}/{$image.filename_with_path}" />
+																										</div>
+																								</div>
+																						{/if}
+																				{/if}
+																		{/foreach}
+																{/if}
+														</div>
+														
+														<div class="col-md-6">
+																<div class="row">
+																		<div class="form-group col-sm-12">
+																				<label for="image_card3">Textkarte:</label>
+																				<input type="file" class="form-control" name="image_card3" />
+																		</div>
+																</div>																
+																{if isset($DATA.data.images)}
+																		{foreach from=$DATA.data.images item=image}
+																				{if $image.file_exists}
+																						{if $image.card_number == 3}
+																								<div class="row">
+																										<div class="form-group col-sm-12">
+																												<label>Aktuelles Bild:</label><br />
+																												<img src="//{$SITE_URLS[0].url}/{$image.filename_with_path}" />
+																										</div>
+																								</div>
+																						{/if}
+																				{/if}
+																		{/foreach}
+																{/if}
+														</div>
+														
+														
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="right_answer">Richtige Antwort:</label>
+																<select name="right_answer" class="form-control">
+																		<option value="0">-- Please choose --</option>
+																		{foreach from=$CARDS item=card}
+																				<option value="{$card.id}"{if $card.id == $DATA.data.right_answer} selected="selected"{/if}>{$card.titles[0].title1}</option>
+																		{/foreach}
+																</select>
+														</div>
+												</div>
+												
+										</div>
+								</div>
+								
+								
+										
+								<div class="row">
+										<div class="col-xs-12">
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<input type="hidden" name="id" id="id" value="{$DATA.data.id}" />
+																<button type="submit" class="btn btn-primary">{$smarty.const.TEXT_BUTTON_SAVE}</button>
+														</div>
+												</div>
+										</div>
+								</div>
+						</form>
+				</div>
+		</div>
+</div>
+
+<style>
+		img { width: 100px; }
+</style>

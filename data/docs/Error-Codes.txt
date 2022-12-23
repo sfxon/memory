@@ -1,0 +1,136 @@
+     1	A module requires a higher version of another module. (cCore->checkModulesDependencies)
+     2	A required module was not found. (cCore->checkModulesDependencies)
+     3  Database Module has not been found. (cDB->initInstance)
+      	The database module might be loaded from a configuration file. Make sure the parameter dbmodule is a string of a db class.
+     4  There is already a database instance with this instance name. (cDB->initInstance)
+      	Check if the instance already exists. If so: die. User would have to close the instance, before instanciating with the same name. This will make it easier to find errors,
+      	because so it is not possible to override an instance by accident.
+     5	No database instance with this name has been found (cDB->connect). See additional info for instance name: [additional error field]
+     6	Connection attempt to database failed. (cDB->connect). See additional info for instance name: [additional error field]
+     7	[Warning] Session lifetime could not be set (in cSession->__construct). Maybe you are not allowed to use ini_set? Session lifetime will be the servers default value.
+		 8	There are no system languages defined. (cLang->initialize)
+		 9	The user is not allowed to save content entries.
+		10  There is no content with this id in the database table.
+		11  There is no language with this id in the database table.
+		12	ID für diesen Eintrag wurde nicht gefunden.
+		13  Es wurde keine Navigations-Leiste mit dieser ID gefunden.
+		14  Beim Speichern der Navigationsleiste ist ein Fehler aufgetreten.
+		15  Beim Anlegen eines Navigationsleisten-Elementes ist ein Fehler aufgetreten.
+		16  Beim Aktualisieren eines Navigationsleisten Elementes ist ein Fehler aufgetreten. Konnte das Element in der Datenbank nicht finden.
+		17  Fehler beim Speichern eines Navigationsleisten Elementes.
+		18	User is not allowed to use module cAdmincontentedit.
+		19	Content with given ID could not be found.
+		20	Fehler beim Speichern eines Content Eintrages.
+		21	User is not allowed to use module cAdminseourlsedit.
+		22	SEO URL with given ID could not be found (cAdminseourlsedit).
+		23	Error while updating a seo url.
+		24	Error while creating a seo url.
+		25	User data was not found.
+		26	User is not allowed to use module cAdmincontactform.
+		27	Contact form with given ID could not be found (cAdmincontactform).
+		28	Error while updating a contact form.
+		29	Error while creating a contact form.
+		30	User is not allowed to use module cAdmintextvariables.
+		31	Text variable with given ID could not be found (cAdmintextvariables).
+		32	Error while updating text variable.
+		33	Error while creating text variable.
+		34	Error while creating a contact form detail entry.
+		35	Contact form detail with given ID could not be found (cAdmincontactform).
+		36	Error while updating a contact form detail entry.
+		37	User is not allowed to use module cAdminsites.
+		38	Site with given ID could not be found (cAdminsites).
+		39	Error while updating site.
+		40	Error while creating site.
+		41  User is not allowed to use module cAdminaccounts.
+		42	Error while updating user account. ID was zero.
+		43	Error while updating user account.
+		44	Could not update user account.
+		45	Error while creating a user account.
+		46	User is not allowed to use module cAdminmqlaccounts.
+		47	Error while updating mqllock account. ID was zero.
+		48	Error while updating mqllock account. Account was not found.
+		49	Error while updating mqllock account. Could not save changes.
+		50	Error while creating a mqllock account. Could not save data.
+		51	User is not allowed to use module cAdminaccountlicences.
+		52	User is not allowed to use module cAdminlicencepresets.
+		53	Error while updating licence preset. ID was zero.
+		54	Error while updating licence preset. Licence preset not found.
+		55	Error while updating licence preset. Could not save changes.
+		56	Error while creating licence preset. Could not save data.
+		57	Error while updating account licence. Database entry was not found.
+		58	Error while updating account licence. Error while saving in database.
+		59	Error while creating account licence. Could not create entry in database.
+		60	No permission to "delete" an user account.
+		61	Unkown operation. We didn't get proper input. We expect specific values for the buttons in the form, where we ask to delete an user account.
+		62	User is not allowed to use module cAdminwebsellersessions.
+		63	No user with the given ID was found in cAdminwebsellersessions->checkUser.
+		64	No permission to mark the webseller_session for "deletion".
+		65	Unknown operation. We didn't get proper input. We expect specific values for the buttons in the form, where we ask to delete a webseller_session.
+		66	Error while updating webseller session. ID was 0 (zero).
+		67	Error while updating webseller session. Session not found.
+		68	Error while updating webseller session in database.
+		69	Error while creating a webseller session entry in database.
+		70	No permission to "delete" a product category.
+		71	Unkonwn operation. We didn't get proper input. We expect specific values for the buttons in the form, whee we ask to delete an product category.
+		72	Error while updating product category. ID was zero.
+		73	Error while updating product category.
+		74	Error while updating product category. Data was not saved in database.
+		75	Error while creating a product category.
+		76	Error while updating product category. ID was zero.
+		77	Error while updating product category. No entry with this ID found in database.
+		78	Error while updating product category: Error when saving in database.
+		79	User is not allowed to use module "cAdminproductcategories".
+		80	No searchterm entered.
+		81	Error while creating a product in the database.
+		82	Error while updating product. Product ID was NULL (zero).
+		83	Error while updating product. Product not found in database.
+		84	Error while updating product. Error while saving in database.
+		85	Products ID was empty (0, zero..).
+		86	No product with the give products id found in database.
+		87	Error during copy operation of file. Could not move file in cProductfiles.
+		88	Error: uploaded file not found. (cProductfiles).
+		89	Uploaded file was not found. No entry with this key in the files array.
+		90	There was no parameter wss in the call of this site. The wss parameter is needed for webseller customer sessions.
+		91	There was no session with this session id in the database.
+		92	No product with this products id found in the database table.
+		93	User is not a seller. You have to define the seller status in admin->stammdaten->accounts.
+		94	A webseller session with this id was not found.
+		95	There is already at least one running live instance of this session. You cannot start another one, before the other sessions are closed.
+		96	This seller is not allowed to run this session. The session type is not similar to the account type. (Rookie Session is for rookie Sellers. Powerseller Session is for powerseller sellers).
+		97	The given email address was not validated. We suggest it contains an error. Webseller-Session cannot be started.
+		98	User is not allowed to use module adminsetupwebseller.
+		99	No user with the give id found. Check the webseller sessions customer.
+	 100	No live session with given id was found in live session database table.
+	 101	User tried to connect, but session has not been started (session_started_on in webseller_sessions_live table for this entry is NULL).
+	 102	Session wurde durch den Verkäufer beendet (session_ended_on is set in webseller_sessions_live table).
+	 103	User is not allowed to use module cAdminwebsellersessionslive.
+	 104	Session was not found.
+	 105	User is not allowed to use module cAdminwebsellermachines.
+	 106	Webseller Machine was not found.
+	 107	Error while updating webseller machine. Error while writing database entry.
+	 108	Error while creating webseller machine. Error while writing database entry.
+	 109	User is not allowed to use module cAdminwebsellermachinesstates.
+	 110	No valid id for webseller machine provided.
+	 111	Could not load webseller machines entry from database.
+	 112	Template folder for webseller machine was not found.
+	 113	Webseller Machines state was not found.
+	 114	Error while updating webseller machines state. Error while writing database entry.
+	 115	Error while creating webseller machines state. Error while writing database entry.
+	 116	User is not allowed to use module cAdminwebsellermachinesstatesobjects.
+	 117	No valid id for webseller machines state provided.
+	 118	Could not load webseller machines states entry from database.
+	 119	Template file for webseller machines state was not found.
+	 120	Webseller Machines states object was not found.
+	 121	Error while updating webseller machines states object. Error while writing database entry.
+	 122	Error while creating webseller machines states object. Error while writing database entry.
+	 123	User is not allowed to use module cAdminproductimport.
+	 124	User is not allowed to use module cAdminwebsellercustomersclear.
+	 125	User is not allowed to use module cAdminwebsellercustomersimport.
+	 126	User is not allowed to use module cAdminurlshortener.
+	 127	User is not allowed to delete an entry in the urlshortener tables.
+	 128	Unknown operation. We didn't get proper input. We expect specific values for the buttons in the form, where we ask to delete a urlshortener.
+	 129	Error while updating urlshortener. ID was 0 (zero).
+	 130	Error while updating urlshortener. No entry with the given id found in the database.
+	 131	Error while updating urlshortener entry in database.
+	 132	Error while creating a urlshortener entry in database.
+	 

@@ -1,0 +1,28 @@
+{* <!--
+
+{if false != $DATA}
+		<div class="main-nav">
+				<ul class="menu">
+						{foreach from=$DATA.navbar_entries item=navitem}
+								{if $navitem.sub_navbar|count == 0 || $navitem.sub_navbar.navbar_entries|count == 0}
+										<li><a href="{$navitem.url}">{$navitem.description.title}</a></li>	
+								{else}
+										<li class="page_item_has_children">
+												<a href="{$navitem.url}">{$navitem.description.title}</a>
+												
+												<ul class="children">
+														{foreach from=$navitem.sub_navbar.navbar_entries item=subnavitem1}
+																<li class="page_item">
+																		<a href="{$subnavitem1.url}">{$subnavitem1.description.title}</a>
+																</li>
+														{/foreach}
+												</ul>
+										
+										</li>
+								{/if}
+						{/foreach}
+				</ul>
+		</div>
+{/if}
+
+--> *}

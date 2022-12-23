@@ -1,0 +1,102 @@
+About HooksandChains - "Von Ketten und Haken"
+===============================================
+
+1. Einleitung
+-------------
+HooksandChains, so nennt sich der Bestandteil von Blitz,
+der die Modulfähigkeit im gegebenen Umfang überhaupt erst ermöglicht.
+Mit HooksandChains wird die Verarbeitung im gesamten System gesteuert.
+Dieser Basisbestandteil legt zum einen fest,
+welche Funktion zu welchem Zeitpunkt aufgerufen wird.
+Zum anderen lassen sich damit mit neuen Plugins bestehende Module erweitern,
+ohne das man direkt in den Quellcode eines bestehenden Modules eingreifen muss.
+Damit ist gewährleistet, dass das System auch mit eigenen Erweiterungen jederzeit
+aktualisiert werden kann.
+
+Die Vorteile noch einmal im Überblick.
+
+HooksandChains ...
+.. machen das System Update-fähig.
+.. machen das System Plugin-fähig.
+.. steuern die Verarbeitung im System und auf den einzelnen Seiten.
+
+2. Übersicht
+------------
+HooksandChains besteht aus zwei Basiskomponenten, wie der Name schon verrät.
+
+*Chain* 
+(von englisch /Kette/)
+Wikipedia definiert eine Kette als ".. eine Aneinanderreihung von beweglichen, ineinandergefügten oder mit Gelenken verbundenen Gliedern ..".
+Und genau das stellt unsere Kette auch dar. In der Kette werden die Hooks eingehangen.
+Die Kette hat keine feste Länge. Es können einfach neue Glieder eingefügt werden.
+
+*Hooks*
+(von englisch /Haken/)
+Haken werden verwendet, um etwas in die Kette einzuhängen.
+Am Anfang ist die Kette noch ganz klein. Mit jedem Haken der eingehangen wird,
+wird ein Kettenglied hinzugefügt. Damit wird die Kette immer länger.
+Man kann ein neues Glied an einer beliebigen Stelle, vor oder nach einem anderen Haken/Glied einfügen.
+Dadurch kann man Einfluss auf die zuvor bearbeiteten Daten nehmen - oder Daten für die spätere Bearbeitung vorbereiten.
+Die Ablauflogik wird also durch die Reihenfolge der Haken bestimmt.
+
+*Chains* /MEHRZAHL!/
+Das System besteht aus zwei Basis-Ketten.
+Weitere Ketten sind im Grunde nicht nötig und auch nicht vorgesehen.
+Es gibt eine /Boot-Chain/ und eine /Executional-Chain/.
+
+/Boot-Chain/
+Bei der Boot-Chain handelt es sich um ein einfacheres Konstrukt.
+Sie wird vor der Executional Chain ausgeführt, noch bevor Module instanziiert wurden.
+Die entsprechenden Funktionen in den Modul-Klassen müssen deshalb statisch zur Verfügung stehen.
+Die Boot-Chain ist eine Art Boot-Strapper - das System hebt sich damit gewissermaßen selbst auf die Füße.
+
+Basis-Module der Boot-Chain sind bspw. das Modul für SEO-Urls, das Modul für essentielle Datenbankverbindungen oder
+auch das Modul für das Session-Management.
+Module, die sich in die Boot-Chain einklinken, sind immer eingeklingt. Die Boot-Chain sollte deshalb sparsam
+verwendet werden.
+
+/Executional-Chain/
+Die Executional-Chain stellt den Mittelpunkt von Blitz dar.
+Sie ermöglicht die Erstellung von unterschiedlichen Abläufen -
+ähnlich als würde man verschiedene PHP-Scripte erstellen: 
+eines für den Login, eines für die Registrierung, eines für die Ausgabe von Content Seiten.
+
+Gesteuert wird das ganze auch tatsächlich so.
+Möchte man ein bestimmtes Modul ausführen, übergibt man als Query-Parameter im GET
+die Variable s mit dem Modulnamen.
+Der Core (Kern) des Systemes ruft dann die Funktion "setExecutionalHooks" dieses Modules auf.
+In diesem können Basis-Bestandteile in der Executional-Chain verankert werden.
+Der Kern selbst hat vorher bereits eine Reihe von Modulen in der Executional-Chain angelegt,
+in die sich das Modul einklinken kann.
+Damit besteht auch für andere Module eine Basis, auf die man sich verlassen kann.
+
+Zusätzlich gibt es zwei Methoden, die ebenfalls Einfluss nehmen können.
+Zum einen kann man mit "setCoreHooks" Ankerpunkte setzen, die immer ausgeführt werden.
+Das Modul klinkt sich dann immer in die Chain ein. Auch das sollte nur mit Bedacht vorgenommen werden,
+um die Ausführung nicht unnötig aufzublähen.
+setCoreHooks wird vor setExecutionalHooks aufgerufen.
+
+Außerdem kann mit setAdditionalHooks ebenfalls Einfluss genommen werden.
+Damit können Module jederzeit eingeklinkt werden, nachdem die executional Chain steht.
+Auch das sollte nur mit Bedacht vorgenommen werden, da man nur selten wirklich auf jeder Seite
+überschreiben möchte.
+Auf der anderen Seite, würden sich die executionalHooks aber kaum überschreiben lassen,
+wenn nicht über diesen Weg. Er ist also hauptsächlich für die Erweiterung bestehender Module vorgesehen.
+
+
+*Core-Hooks*
+Die cCore Hooks sind die elementarsten Hooks.
+Diese werden direkt vom Kern gesetzt, und sind damit immer verfügbar.
+Kein Modul sollte diese entfernen, da sonst nicht mehr gegeben ist,
+das andere Module sich darin einklinken können:
+
+init			Initialisierung von Variablen
+input			Übernahme der Eingabe.
+process		Verarbeitung. Falls verschiedene Logik-Abläufe innerhalb eines Moduls vorkommen können, sollte dies hier durchgeführt werden.
+render		Erstellt den Ausgabestring. Dieser wird vor der wirklichen Ausgabe erzeugt, damit andere Module auf die Ausgabe Einfluss nehmen können.
+output		Ausgabe in das gewählte Gerät: Monitor, Drucker, Pipes, Dateien - es ist nahezu alles möglich und denkbar..
+end				Zum Aufräumen kann diese Funktion verwendet werden. Bitte nicht mit dem Destructor verwechseln!
+
+
+
+

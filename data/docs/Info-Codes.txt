@@ -1,0 +1,7 @@
+#Info Codes are used, where there are neighter errors or success stati.
+#They are of informational purpose.
+
+     1	Operation aborted. User account was not deleted.
+		 2	Operation aborted. Webseller session was not marked for "deletion".
+		 3	Operation aborted. Product category was not marked as "deleted".
+		 4	Operation aborted. Urlshortener was not marked as "deleted".

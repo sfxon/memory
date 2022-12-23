@@ -1,0 +1,45 @@
+Content Management System (CMS)
+===============================
+
+1. Aufbau des Moduls
+
+2. Speicherung von Daten
+		Es werden zwei Speicherstrukturen verwendet:
+		
+		a) Datenbank
+				In der Datenbank werden Daten zur Verwaltung sowie Meta-Daten abgelegt.
+				Bspw.: id
+				
+		b) Dateisystem
+				Im Dateisystem wird der Eintrag an sich in der jeweiligen Sprache angelegt.
+				Die Daten befinden sich im Ordner: [blitz-root]/data/cms/
+				
+				Ein Eintrag ist folgendermaßen aufgebaut:
+				
+				ID_LanguageID.tpl  (Also bspw. 5_1.tpl)
+				
+				Im Beispiel enthält die Datei mit dem Namen 5_1.tpl also den CMS Eintrag mit der CMS-ID 5,
+				und der Sprach-ID 1.
+				
+3. Festgelegte Einträge				
+		NEUE INFORMATION
+		Es gibt Standard-CMS Keys im System. Diese sollten nach Möglichkeit für die immer gleichen Aufgaben verwendet werden.
+		Diese sind nachfolgend definiert:
+		
+		INDEX						Definiert eine Startseite.
+		LOGIN						Definiert eine Login Seite. Hierbei handelt es sich um einen reinen Login.
+		REGISTER				Registrierung eines neuen Benutzers im Frontend.
+		LOGIN_REGISTER	Kombinierte Seite aus Login und Registrierung.	
+
+
+		ALTE INFORMATION
+		Die Datei mit der ID 1_lanuage_id.tpl bezeichnet im Standard immer die index Datei.		//TODO: Fix this. It has to use the cms key in the future.
+		
+		
+		
+		HISTORY
+		=======
+		
+		Mit Version 0.2 wurde die Dateierweiterung für die Content-Dateien von .txt in .tpl geändert.
+		Damit ist der Quelltext dieser Dateien in den üblichen Editoren wie bspw. Dreamweaver automatisch
+		im HTML Modus dargestellt.

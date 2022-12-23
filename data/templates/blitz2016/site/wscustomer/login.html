@@ -1,0 +1,53 @@
+<div id="index-content">
+		<div class="container-fluid">
+				<div class="row">
+						<div id="index-logo-top">
+								<img src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/images/logo-index.png" alt="" title="" />
+						</div>
+						
+						<div class="col-xs-12">
+								<h1 class="heading-index-top">
+										{strip}
+										{if $DATA.cws.customers_data.gender != 0}
+												{if $DATA.cws.customers_data.gender == 1}Herr{/if}
+												{if $DATA.cws.customers_data.gender == 2}Frau{/if}
+										{/if}												
+										{/strip} {if $DATA.cws.customers_data.gender != 0}{$DATA.cws.customers_data.lastname}, {/if}Willkommen in Ihrem Logo-Shop
+								</h1>
+								
+								<div id="heading-login-logo-container">
+										<div id="heading-login-logo-image">
+												<img src="{$DATA.cws.logo_image_url}" alt="{$DATA.cws.customers_data.company}" title="{$DATA.cws.customers_data.company}" />
+										</div>
+								</div>
+						</div>
+						
+						<div class="col-md-4 col-md-offset-4 text-center">
+								<noscript>
+										<br /><br />
+										<div class="alert alert-danger"><b>Achtung!</b> Javascript ist deaktiviert.
+										Unser Logo-Shop verwendet Javascript um Ihnen ein optimales Erlebnis bieten zu können.
+										Ohne Javascript können Sie den Shop leider nicht betreten.</div>
+										</div>
+										
+								</noscript>
+								
+								<div id="login-center-container">
+										<form action="{$LOGIN_FORM_URL}" method="POST">
+												{if $ERRORMESSAGE != ''}
+														<div class="alert alert-danger" role="alert">{$ERRORMESSAGE}</div>
+												{/if}
+												<p id="login-form-action-url-text">Geben Sie hier Ihren Session-Code ein:</p>
+												<input type="text" class="form-control" name="session_key" value="{$SESSION_KEY}" /><br />
+												<button type="submit" class="btn btn-default">Jetzt Beitreten</button>
+										</form>
+										<br /><br />
+								</div>
+						</div>
+				</div>
+		</div>
+		
+		<div id="index-logo-right">
+				<img src="{$TEMPLATE_URL}data/templates/{$TEMPLATE}/images/logo-index.png" alt="" title="" />
+		</div>
+</div>

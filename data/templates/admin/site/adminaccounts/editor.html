@@ -1,0 +1,244 @@
+<div class="container-fluid">
+		<nav class="navbar navbar-default mv-navbar" role="navigation">
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">{$smarty.const.TEXT_TOGGLE_NAVIGATION}</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<div class="navbar-left navbar-text">
+								{$NAVBAR_TITLE}
+						</div>
+				</div>
+		</nav>
+		
+		<div class="mvbox">
+				<div class="mvbox-body">
+						<form role="form" action="{$DATA.url}" method="POST" class="form">
+								<div class="row">
+										<div class="col-xs-12 col-md-8">					
+												
+												{if $DATA.data.id != 0}								
+														<div class="row">
+																<div class="form-group col-sm-12">
+																		<label for="id">{$smarty.const.TEXT_LABEL_CONTENT_ID}</label>
+																		<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_CONTENT_ID}" name="id" value="{$DATA.data.id}" readonly="readonly" />
+																</div>
+														</div>
+												{/if}
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="account_type">{$smarty.const.TEXT_LABEL_ACCOUNT_TYPE}</label>
+																<select name="account_type" class="form-control">
+																		<option value="0"{if 0 == $DATA.data.account_type} selected="selected"{/if}>Deaktiviert</option>
+																		<option value="1"{if 1 == $DATA.data.account_type} selected="selected"{/if}>Administrator</option>
+																		<option value="2"{if 2 == $DATA.data.account_type} selected="selected"{/if}>Kunde/Account</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="username">{$smarty.const.TEXT_LABEL_USERNAME}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_USERNAME}" name="username" value="{$DATA.data.username}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="email">{$smarty.const.TEXT_LABEL_EMAIL}</label>
+																{if isset($ERRORS['email_exists'])}
+																		<div class="alert alert-danger" role="alert">{$smarty.const.TEXT_ERROR_EMAIL_ADDRESS_ALREADY_EXISTS}</div>
+																{/if}
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_EMAIL}" name="email" value="{$DATA.data.email}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="phone">{$smarty.const.TEXT_LABEL_PHONE}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_PHONE}" name="phone" value="{$DATA.data.phone}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="password">{$smarty.const.TEXT_LABEL_PASSWORD}</label>
+																{if isset($ERRORS['password_no_uppercase_char']) || isset($ERRORS['password_no_lowercase_char']) || isset($ERRORS['password_no_number']) || isset($ERRORS['password_length'])}
+																		<div class="alert alert-danger" role="alert">
+																				Das Passwort muss mindestens 8 Zeichen lang sein, und mindestens jeweils einen Großbuchstaben, Kleinbuchstaben sowie eine Zahl enthalten.<br />
+																				Das aktuelle Passwort weißt folgende Probleme auf:<br />
+																				{if isset($ERRORS['password_no_uppercase_char'])}
+																						<br />-es enthält keinen Großbuchstaben
+																				{/if}
+																				{if isset($ERRORS['password_no_lowercase_char'])}
+																						<br />-es enthält keinen Kleinbuchstaben
+																				{/if}
+																				{if isset($ERRORS['password_no_number'])}
+																						<br />-es enthält keine Zahl
+																				{/if}
+																				{if isset($ERRORS['password_length'])}
+																						<br />-es ist zu kurz. Bitte geben Sie mindestens 8 Zeichen ein.
+																				{/if}
+																		</div>
+																{/if}
+																<input type="password" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_PASSWORD}" name="password" value="" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="email_language">{$smarty.const.TEXT_LABEL_EMAIL_LANGUAGE}</label>
+																<select name="email_language" class="form-control">
+																		<option value="1"{if 1 == $DATA.data.email_language} selected="selected"{/if}>Deutsch</option>
+																		<option value="2"{if 2 == $DATA.data.email_language} selected="selected"{/if}>Englisch</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="gender">{$smarty.const.TEXT_LABEL_GENDER}</label>
+																<select name="gender" class="form-control">
+																		<option value="1"{if 1 == $DATA.data.gender} selected="selected"{/if}>Herr</option>
+																		<option value="2"{if 2 == $DATA.data.gender} selected="selected"{/if}>Frau</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="firstname">{$smarty.const.TEXT_LABEL_FIRSTNAME}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_FIRSTNAME}" name="firstname" value="{$DATA.data.firstname}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="lastname">{$smarty.const.TEXT_LABEL_LASTNAME}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_LASTNAME}" name="lastname" value="{$DATA.data.lastname}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="company">{$smarty.const.TEXT_LABEL_COMPANY}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_COMPANY}" name="company" value="{$DATA.data.company}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="company_position">{$smarty.const.TEXT_LABEL_COMPANY_POSITION}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_COMPANY_POSITION}" name="company_position" value="{$DATA.data.company_position}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-xs-6">
+																<label for="street_address">{$smarty.const.TEXT_LABEL_STREET_ADDRESS}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_STREET_ADDRESS}" name="street_address" value="{$DATA.data.street_address}" />
+														</div>
+														<div class="form-group col-xs-6">
+																<label for="street_address_house_number">{$smarty.const.TEXT_LABEL_STREET_ADDRESS_HOUSE_NUMBER}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_STREET_ADDRESS_HOUSE_NUMBER}" name="street_address_house_number" value="{$DATA.data.street_address_house_number}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="zip">{$smarty.const.TEXT_LABEL_ZIP}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_ZIP}" name="zip" value="{$DATA.data.zip}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="city">{$smarty.const.TEXT_LABEL_CITY}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_CITY}" name="city" value="{$DATA.data.city}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="country">{$smarty.const.TEXT_LABEL_COUNTRY}</label>
+																<input type="text" class="form-control" placeholder="{$smarty.const.TEXT_LABEL_COUNTRY}" name="country" value="{$DATA.data.country}" />
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="notice">{$smarty.const.TEXT_LABEL_NOTICE}</label>
+																<textarea class="form-control" placeholder="{$smarty.const.TEXT_LABEL_NOTICE}" name="notice">{$DATA.data.notice}</textarea>
+														</div>
+												</div>
+										</div>
+								
+										<!-- Rechte Spalte - Kundengruppen/Kundentypen -->
+										<div class="col-xs-12 col-md-4">
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="is_supplier">{$smarty.const.TEXT_LABEL_IS_SUPPLIER}</label>
+																<select name="is_supplier" class="form-control">
+																		<option value="0"{if 0 == $DATA.data.is_supplier} selected="selected"{/if}>Nein</option>
+																		<option value="1"{if 1 == $DATA.data.is_supplier} selected="selected"{/if}>Ja</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="is_manufacturer">{$smarty.const.TEXT_LABEL_IS_MANUFACTURER}</label>
+																<select name="is_manufacturer" class="form-control">
+																		<option value="0"{if 0 == $DATA.data.is_manufacturer} selected="selected"{/if}>Nein</option>
+																		<option value="1"{if 1 == $DATA.data.is_manufacturer} selected="selected"{/if}>Ja</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="is_referrer_platform">{$smarty.const.TEXT_LABEL_IS_REFERRER_PLATFORM}</label>
+																<select name="is_referrer_platform" class="form-control">
+																		<option value="0"{if 0 == $DATA.data.is_referrer_platform} selected="selected"{/if}>Nein</option>
+																		<option value="1"{if 1 == $DATA.data.is_referrer_platform} selected="selected"{/if}>Ja</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="seller_status">Verkäufer</label>
+																<select name="seller_status" class="form-control">
+																		<option value="0"{if 0 == $DATA.data.seller_status} selected="selected"{/if}>Nein</option>
+																		<option value="1"{if 1 == $DATA.data.seller_status} selected="selected"{/if}>Rookie</option>
+																		<option value="2"{if 2 == $DATA.data.seller_status} selected="selected"{/if}>Powerseller</option>
+																</select>
+														</div>
+												</div>
+												
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<label for="email_footer">{$smarty.const.TEXT_LABEL_EMAIL_FOOTER}</label>
+																<textarea class="form-control" placeholder="{$smarty.const.TEXT_LABEL_EMAIL_FOOTER}" name="email_footer">{$DATA.data.email_footer}</textarea>
+														</div>
+												</div>
+										</div>
+										
+										<div class="col-xs-12">
+												<div class="row">
+														<div class="form-group col-sm-12">
+																<input type="hidden" name="id" id="id" value="{$DATA.data.id}" />
+																<button type="submit" class="btn btn-primary">{$smarty.const.TEXT_BUTTON_SAVE}</button>
+														</div>
+												</div>
+										</div>
+								</form>
+						</div>
+				</div>
+		</div>
+</div>

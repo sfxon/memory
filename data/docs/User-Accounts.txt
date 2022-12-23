@@ -1,0 +1,14 @@
+Users/Accounts
+==============
+
+Users/Accounts is some basic functionality.
+
+
+
+account_type
+=============
+Any user account can have one of this status, called account_type:
+
+0			Deleted (not for real. it is an disabled account, marked for removal.)
+1			Admin account.
+2 		Normal user account.
